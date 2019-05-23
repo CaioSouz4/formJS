@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Form</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+   
+</head>
+<body >
+
+    <div style="margin-left: 33%; margin-top: 6%;">
+        <div style="margin-bottom: 15px;">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" />
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" />
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="msg">Data:</label>
+            <input type="date" id="date" />
+        </div>
+
+        <button onclick="add(nome.value, email.value, date.value)">Submeter</button>
+    </div>  
+
+    <div id="lista" style="margin-left: 33%;">        
+    </div>
+    
+    <script>  
+        var count = 0;      
+        function add(nome, email, date) {              
+        var list = document.createElement("div");   
+        list.id = count;            
+        list.innerHTML =  "<p>" + nome + "</p>" + "<p>" + email + "</p>" 
+        + "<p>" + date + "</p>" + "<button onclick = 'excluir(" + count + ")'> excluir </button>";
+        document.getElementById("lista").appendChild(list); 
+         count++;    
+        }
+
+        function excluir(elementID){
+            console.log("chamou")
+            var aux = document.getElementById("lista");  
+            var element = document.getElementById(elementID);          
+            aux.removeChild(element);
+        }
+    </script>
+
+
+</body>
+</html>
